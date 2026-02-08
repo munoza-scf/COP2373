@@ -9,7 +9,7 @@ Rules:
 - The program repeats until all tickets are sold, then displays the total number of buyers.
 """
 
-TOTAL_TICKETS = 20
+TOTAL_TICKETS = 10
 MAX_PER_BUYER = 4
 
 
