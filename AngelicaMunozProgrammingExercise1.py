@@ -79,7 +79,7 @@ def main() -> None:
     Control the ticket pre-sale loop until tickets are sold out, then report totals.
 
     Parameters:
-        None
+     def main() -> None:
 
     Variables:
         tickets_remaining (int): Accumulator that tracks the tickets still available.
