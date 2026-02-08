@@ -6,7 +6,7 @@ Rules:
 - A buyer can purchase 1 to 4 tickets per transaction.
 - No more than 20 tickets total can be sold.
 - After each purchase, the program displays how many tickets remain.
-- The program repeats until all tickets are sold, then displays the total number of buyers.
+- The program repeats until all tickets are sold, then displays the total number of total_buyers.
 """
 
 TOTAL_TICKETS = 10
@@ -36,7 +36,7 @@ def request_tickets(tickets_remaining: int) -> int:
         int: The number of tickets the buyer will purchase (1-4, and <= tickets_remaining).
     """
     while True:
-        raw = input(f"Enter the number of tickets you want to purchase (1-{max_allowed}): "
+        raw = input(f"Enter the number of tickets you want to purchase (1-{MAX_PER_BUYER}): "
                     f"Tickets remaining: {tickets_remaining} >>> ").strip()
         try:
             requested = int(raw)
@@ -83,23 +83,23 @@ def main() -> None:
 
     Variables:
         tickets_remaining (int): Accumulator that tracks the tickets still available.
-        buyers (int): Accumulator that counts how many buyers completed a purchase.
+        total_buyers (int): Accumulator that counts how many total_buyers completed a purchase.
         requested (int): Tickets requested for the current buyer.
 
     Logic:
-        1. Initialize tickets_remaining to TOTAL_TICKETS and buyers to 0.
+        1. Initialize tickets_remaining to TOTAL_TICKETS and total_buyers to 0.
         2. Loop while tickets_remaining > 0:
             a. Call request_tickets to get a validated ticket request.
             b. Call apply_purchase to update tickets_remaining.
-            c. Increment buyers by 1.
+            c. Increment total_buyers by 1.
             d. Display the updated number of remaining tickets.
-        3. After the loop ends, display the total number of buyers.
+        3. After the loop ends, display the total number of total_buyers.
 
     Return:
         None
     """
     tickets_remaining = TOTAL_TICKETS
-    buyers = 0
+    total_buyers= 1
 
     print("Cinema Ticket Pre-Sale")
     print("-" * 22)
@@ -107,14 +107,14 @@ def main() -> None:
     while tickets_remaining > 0:
         requested = request_tickets(tickets_remaining)
         tickets_remaining = apply_purchase(tickets_remaining, requested)
-        buyers += 1  # accumulator (count buyers)
+        total_buyers += 1  # accumulator (count total_buyers)
 
         if tickets_remaining > 0:
             print(f"Purchase complete! Tickets remaining: {tickets_remaining}\n")
         else:
             print("Purchase complete! Tickets remaining: 0\n")
 
-    print(f"Sold out! Total number of buyers: {buyers}")
+    print(f"Sold out! Total number of total_buyers: {total_buyers}")
 
 
 if __name__ == "__main__":
