@@ -36,7 +36,7 @@ def request_tickets(tickets_remaining: int) -> int:
         int: The number of tickets the buyer will purchase (1-4, and <= tickets_remaining).
     """
     while True:
-        raw = input(f"How many tickets would you like to buy (1-{MAX_PER_BUYER})? "
+        raw = input(f"Enter the number of tickets you want to purchase (1-{max_allowed}): "
                     f"Tickets remaining: {tickets_remaining} >>> ").strip()
         try:
             requested = int(raw)
